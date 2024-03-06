@@ -5,6 +5,8 @@ import yaml
 from yaml.loader import SafeLoader
 from pages.test import show_test_page
 
+st.title('Welcome to the CIP!')
+
 #ログイン認証
 with open("config/config.yaml", "r") as file:
     config = yaml.load(file, Loader=SafeLoader)
