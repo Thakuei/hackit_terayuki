@@ -1,0 +1,19 @@
+credentials:
+  usernames:
+    Hakuei:
+      email: c1247183@st.kanazawa-it.ac.jp
+      logged_in: False # Will be managed automatically
+      name: Hakuei Terada
+      password: 0903 # Will be hashed automatically
+    rbriggs:
+      email: rbriggs@gmail.com
+      logged_in: False # Will be managed automatically
+      name: Rebecca Briggs
+      password: def # Will be hashed automatically
+cookie:
+  expiry_days: 30
+  key: some_signature_key # Must be string
+  name: some_cookie_name
+preauthorized:
+  emails:
+  - melsby@gmail.com
