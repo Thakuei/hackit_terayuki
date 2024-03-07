@@ -1,0 +1,9 @@
+[theme]
+backgroundColor="#e6e6fa"
+secondaryBackgroundColor="#fffafa"
+textColor="#262730"
+font="sans serif"
+
+# これ入るかどうかわからん
+[server]
+enableCORS = false
