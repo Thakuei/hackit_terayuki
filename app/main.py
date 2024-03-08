@@ -21,9 +21,9 @@ authenticator = stauth.Authenticate(
 
 authenticator.login()
 
-# st.session_stateに変える
 if st.session_state['authentication_status']:
     show_test_page()
+    authenticator.logout()
 elif st.session_state['authentication_status'] == False:
     st.error('ユーザーネームまたはパスワードが違います。再度入力してください。')
 elif st.session_state['authentication_status'] == None:
