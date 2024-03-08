@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  streamlit:
+    build: .
+    ports:
+      - "8502:8502"
+    volumes:
+      - ./app:/app
+    environment:
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - AWS_DEFAULT_REGION=us-east-1
+
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4566:4566" # LocalStackのデフォルトのエンドポイント
+    environment:
+      - SERVICES=s3,lambda,dynamodb # 必要なAWSサービスを指定
+      - DEFAULT_REGION=us-east-1
+      - EDGE_PORT=4566
+    volumes:
+      - "${TMPDIR:-/tmp/localstack}:/tmp/localstack"
