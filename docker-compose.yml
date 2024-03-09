@@ -3,7 +3,7 @@ services:
   streamlit:
     build: .
     ports:
-      - "8502:8502"
+      - "8501:8501"
     volumes:
       - ./app:/app
     environment:
