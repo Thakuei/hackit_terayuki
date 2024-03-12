@@ -3,7 +3,7 @@ import streamlit as st
 import streamlit_authenticator as stauth
 import yaml 
 from yaml.loader import SafeLoader
-from pages.test import show_test_page
+from chat import show_chat_page
 
 st.title('Welcome to the CIP!')
 
@@ -22,7 +22,7 @@ authenticator = stauth.Authenticate(
 authenticator.login()
 
 if st.session_state['authentication_status']:
-    show_test_page()
+    show_chat_page()
     with st.sidebar:
         authenticator.logout()
 elif st.session_state['authentication_status'] == False:

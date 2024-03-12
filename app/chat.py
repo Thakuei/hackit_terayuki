@@ -1,7 +1,7 @@
 import streamlit as st
 import boto3
 
-def show_test_page():
+def show_chat_page():
     st.write(f'現在ログインしているユーザーは、*{st.session_state["name"]}* です')
     st.write('「面接練習をしたいです」と話しかけてください。')
     
