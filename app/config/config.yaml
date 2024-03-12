@@ -4,11 +4,10 @@ cookie:
   name: some_cookie_name
 credentials:
   usernames:
-    Hakuei:
+    hakuei:
       email: c1247183@st.kanazawa-it.ac.jp
-      logged_in: false
-      name: Hakuei Terada
-      password: 0903
+      name: hakuei
+      password: $2b$12$OqftIlYgmaqOgBOEkg/yqermsvV1q4YB0FkO7fmXoIByIiuOnhv7i
     test:
       email: test
       name: test
