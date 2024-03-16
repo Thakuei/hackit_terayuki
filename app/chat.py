@@ -38,14 +38,15 @@ def show_chat_page():
             st.session_state['messages'].append({"role": "bot", "content": lex_response})
     
     for message in st.session_state['messages']:
-    # Display the message in the chat box with appropriate role
         with st.container():
             if message["role"] == "user":
-                st.write(f"You: {message['content']}")
+                user_message = st.chat_message("user")
+                user_message.write(f"You: {message['content']}")
             elif message["role"] == "bot":
-                st.write(f"bot: {message['content']}")
+                mensetukan_meaage= st.chat_message("assistant")
+                mensetukan_meaage.write(f"bot: {message['content']}")
             # 特定のフレーズが含まれている場合はボタンを表示
                 if "本日の面接はこれで終わりです。ありがとうございました" in message['content']:
                     if st.button("分析ページに進む"):
-                        st.switch_page("pages/feedback.py")
+                        st.switch_page("pages/history.py")
                         st.session_state.redirect = True
