@@ -11,7 +11,7 @@ import boto3
 
 def show_chat_page():
     st.write(f'現在ログインしているユーザーは、*{st.session_state["name"]}* です')
-    st.write('「面接練習をしたいです」と話しかけてください。')
+    st.success('「面接練習をしたいです」と話しかけてください。')
     
     if 'messages' not in st.session_state:
         st.session_state['messages'] = []

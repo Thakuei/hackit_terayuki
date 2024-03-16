@@ -7,6 +7,7 @@ st.title('会話履歴')
 # user_input = []
 # bot_message = []
 
+#ここからいらないかも
 client = boto3.client('logs', region_name='us-east-1')
 
 describe_log_streams_response = client.describe_log_streams(
@@ -24,6 +25,7 @@ get_log_events_response = client.get_log_events(
     logStreamName = log_stream_name,
     startFromHead = True  # 最初からログイベントを取得
 )
+# ここまでいらないかも
 
 if 'messages' not in st.session_state:
     # 'messages'キーが存在しない場合は初期化します。
@@ -39,7 +41,7 @@ if st.session_state['messages']:
                 mensetukan_meaage= st.chat_message("assistant")
                 mensetukan_meaage.write(f"bot: {message['content']}")
 else:
-    st.write("まだ会話履歴がありません。会話をしてください。")
+    st.warning("まだ会話履歴がありません。会話をしてください。")
         # # 特定のフレーズが含まれている場合はボタンを表示
         #     if "本日の面接はこれで終わりです。ありがとうございました" in message['content']:
         #         if st.button("分析ページに進む"):
