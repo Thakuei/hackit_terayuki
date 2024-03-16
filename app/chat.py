@@ -1,7 +1,10 @@
 import streamlit as st
 import boto3
 
-# def show_redirect_button(): 消す
+
+st.set_page_config(layout="wide")
+
+# def show_redirect_button():
 #     st.markdown("本日の面接はこれで終わりです。ありがとうございました。")
 #     # 別ページへのボタンを表示
 #     if st.button("分析ページに進む"):
