@@ -4,10 +4,14 @@ cookie:
   name: some_cookie_name
 credentials:
   usernames:
+    TH:
+      email: THTH@outllok.jp
+      name: TH
+      password: $2b$12$lRNBzIkBrfmWqbS2ehRJqufV9JpmYkl8LyYa4t48Zg3sBLop2XZNu
     hakuei:
       email: c1247183@st.kanazawa-it.ac.jp
       name: hakuei
-      password: $2b$12$OqftIlYgmaqOgBOEkg/yqermsvV1q4YB0FkO7fmXoIByIiuOnhv7i
+      password: $2b$12$6cx.nI.3GOcyj.gIBA7UVOYUyqCgAqopo.oCEYEstjuV/SKPffxoa
     test:
       email: test
       name: test
