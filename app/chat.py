@@ -1,6 +1,14 @@
 import streamlit as st
 import boto3
 
+# def show_redirect_button():
+#     st.markdown("本日の面接はこれで終わりです。ありがとうございました。")
+#     # 別ページへのボタンを表示
+#     if st.button("分析ページに進む"):
+#         # ページ遷移を伴う場合は、セッションステートの変更、
+#         # やリンクのクリックを促すメッセージを表示
+#         st.session_state.redirect = True
+
 def show_chat_page():
     st.write(f'現在ログインしているユーザーは、*{st.session_state["name"]}* です')
     st.write('「面接練習をしたいです」と話しかけてください。')
@@ -30,9 +38,15 @@ def show_chat_page():
             st.session_state['messages'].append({"role": "bot", "content": lex_response})
     
     for message in st.session_state['messages']:
-    # Display the message in the chat box with appropriate role
         with st.container():
             if message["role"] == "user":
-                st.write(f"You: {message['content']}")
-            else:
-                st.write(f"bot: {message['content']}")
+                user_message = st.chat_message("user")
+                user_message.write(f"You: {message['content']}")
+            elif message["role"] == "bot":
+                mensetukan_meaage= st.chat_message("assistant")
+                mensetukan_meaage.write(f"bot: {message['content']}")
+            # 特定のフレーズが含まれている場合はボタンを表示
+                if "本日の面接はこれで終わりです。ありがとうございました" in message['content']:
+                    if st.button("分析ページに進む"):
+                        st.switch_page("pages/history.py")
+                        st.session_state.redirect = True
