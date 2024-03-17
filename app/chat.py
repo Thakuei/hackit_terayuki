@@ -1,5 +1,12 @@
 import streamlit as st
 import boto3
+from audio_recorder_streamlit import audio_recorder
+from botocore.exceptions import NoCredentialsError
+import time
+import json
+from datetime import datetime
+from transcribe import trans_function
+
 
 st.set_page_config(layout="wide")
 # def show_redirect_button():
@@ -11,6 +18,9 @@ st.set_page_config(layout="wide")
 #         st.session_state.redirect = True
 
 def show_chat_page():
+
+    trans_function()
+
     st.write(f'現在ログインしているユーザーは、*{st.session_state["name"]}* です')
     st.success('「面接練習をしたいです」と話しかけてください。')
     
