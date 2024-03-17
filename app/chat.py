@@ -21,11 +21,11 @@ st.set_page_config(layout="wide")
 
 def show_chat_page():
     trans_function()
-    col1, col2 = st.columns(2)
+    st.write(f'現在ログインしているユーザーは、*{st.session_state["name"]}* です')
+    col1, col2 = st.columns([2, 5])
     with col1:
-        st.image("img/mensetukan.gif")
+        st.image("img/mensetukan2.gif")
     with col2:
-        st.write(f'現在ログインしているユーザーは、*{st.session_state["name"]}* です')
         st.success('「面接練習をしたいです」と話しかけてください。')
     
         if 'messages' not in st.session_state:

@@ -1,8 +1,5 @@
 [theme]
-backgroundColor="#e6e6fa"
-secondaryBackgroundColor="#f0f8ff"
-textColor="#262730"
-font="sans serif"
+base = "dark"
 
 # これ入るかどうかわからん
 [server]
