@@ -23,9 +23,6 @@ def trans_function():
     uri = "s3://hackit-terayuki.pk/recorded_audio.wav"
 #========================================================================
     
-
-
-#---------------------------------ここ音声をs3に保存するとこ---------------------------------
     #録音するとこ
     with st.sidebar:
         audio_bytes = audio_recorder(
@@ -54,27 +51,28 @@ def trans_function():
         
     def transcribe():
 
+        if not audio_bytes:
+            # `audio_bytes`がない場合、メッセージを表示して関数から抜ける
+            st.warning("録音された音声がありません")
+            return  # 関数の実行をここで停止
+
         # `st.empty()`を使用してプレースホルダを作成
         processing_placeholder = st.empty()
         processing_placeholder.write("Still processing...")
 
-        if audio_bytes:
-            
-            # 録音データをファイルに保存
-            save_audio_file(audio_bytes, file_name)
-            
-            # S3バケット名を指定
-            bucket_name = "hackit-terayuki.pk"
-            
-            # ファイルをS3にアップロード
-            upload_success = upload_file_to_s3(file_name, bucket_name)
-            if upload_success:
-                print("File successfully uploaded to S3.")
-            else:
-                print("File upload to S3 failed.")
-
-
-#------------------------------------------------------------------------------------
+        
+        # 録音データをファイルに保存
+        save_audio_file(audio_bytes, file_name)
+        
+        # S3バケット名を指定
+        bucket_name = "hackit-terayuki.pk"
+        
+        # ファイルをS3にアップロード
+        upload_success = upload_file_to_s3(file_name, bucket_name)
+        if upload_success:
+            print("File successfully uploaded to S3.")
+        else:
+            print("File upload to S3 failed.")
 
 
 #------------------------------------transcribeで文字にしてもらう-----------------------
