@@ -1,4 +1,5 @@
 streamlit
 streamlit-authenticator
 boto3
+pillow
 audio-recorder-streamlit
