@@ -34,4 +34,3 @@ with st.form("new_account_form", clear_on_submit=True):
             yaml.dump(config, file)
             
         st.success("Your account has been created!! Please login")
-
