@@ -5,14 +5,14 @@ from yaml.loader import SafeLoader
 import os
 
 # 新規アカウント作成ページ
-st.title("Create New Account")
+st.title("新規ユーザ登録")
 
 with st.form("new_account_form", clear_on_submit=True):
-    username = st.text_input("User Name")
-    email = st.text_input("Email Address")
-    password = st.text_input("Password", type="password")
+    username = st.text_input("ユーザネーム")
+    email = st.text_input("メールアドレス")
+    password = st.text_input("パスワード", type="password")
 
-    submit_button = st.form_submit_button("Create Account")
+    submit_button = st.form_submit_button("ユーザ作成")
 
     if submit_button:
         # ここでユーザー情報の処理を行う
