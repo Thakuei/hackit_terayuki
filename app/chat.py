@@ -24,7 +24,7 @@ def show_chat_page():
     st.write(f'現在ログインしているユーザーは、*{st.session_state["name"]}* です')
     col1, col2 = st.columns([2, 5])
     with col1:
-        st.image("img/office1.gif")
+        st.image("img/office-tr.gif")
     with col2:
         st.success('「面接練習をしたいです」と話しかけてください。')
     
