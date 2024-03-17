@@ -1,5 +1,12 @@
 import streamlit as st
 import boto3
+from audio_recorder_streamlit import audio_recorder
+from botocore.exceptions import NoCredentialsError
+import time
+import json
+from datetime import datetime
+from transcribe import trans_function
+
 
 
 st.set_page_config(layout="wide")
@@ -13,6 +20,7 @@ st.set_page_config(layout="wide")
 #         st.session_state.redirect = True
 
 def show_chat_page():
+    trans_function()
     col1, col2 = st.columns(2)
     with col1:
         st.title('画像')
