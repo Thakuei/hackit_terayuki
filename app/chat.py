@@ -37,7 +37,6 @@ def show_chat_page():
         lex_v2_client = boto3.client('lexv2-runtime', region_name='us-east-1')
         
         if user_input:
-            
             st.session_state['messages'].append({"role": "user", "content": user_input})
             
             response = lex_v2_client.recognize_text(
