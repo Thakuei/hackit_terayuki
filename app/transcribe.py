@@ -23,9 +23,6 @@ def trans_function():
     uri = "s3://hackit-terayuki.pk/recorded_audio.wav"
 #========================================================================
     
-        # `st.empty()`を使用してプレースホルダを作成
-    processing_placeholder = st.empty()
-    processing_placeholder.write("Still processing...")
 
 #---------------------------------ここ音声をs3に保存するとこ---------------------------------
     #録音するとこ
@@ -49,6 +46,10 @@ def trans_function():
             return False
         
     def transcribe():
+
+        # `st.empty()`を使用してプレースホルダを作成
+        processing_placeholder = st.empty()
+        processing_placeholder.write("Still processing...")
 
         if audio_bytes:
             
