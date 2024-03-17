@@ -23,7 +23,7 @@ def show_chat_page():
     trans_function()
     col1, col2 = st.columns(2)
     with col1:
-        st.title('画像')
+        st.image("img/mensetukan.gif")
     with col2:
         st.write(f'現在ログインしているユーザーは、*{st.session_state["name"]}* です')
         st.success('「面接練習をしたいです」と話しかけてください。')
