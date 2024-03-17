@@ -25,7 +25,7 @@ if st.session_state['authentication_status']:
     show_chat_page()
     with st.sidebar:
         st.write("----------------")
-        authenticator.logout()
+        authenticator.logout("ログアウト")
 elif st.session_state['authentication_status'] == False:
     st.error('ユーザーネームまたはパスワードが違います。再度入力してください。')
 elif st.session_state['authentication_status'] == None:

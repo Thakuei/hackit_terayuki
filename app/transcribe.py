@@ -24,10 +24,17 @@ def trans_function():
 #========================================================================
     
 
+
 #---------------------------------ここ音声をs3に保存するとこ---------------------------------
     #録音するとこ
     with st.sidebar:
-        audio_bytes = audio_recorder()
+        audio_bytes = audio_recorder(
+        text="",
+        recording_color="#ff0000",
+        neutral_color="#ffffff",
+        icon_name="microphone-lines",
+        icon_size="3x",
+        )
         if audio_bytes:
             st.audio(audio_bytes, format="audio/wav")
 
