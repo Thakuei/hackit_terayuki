@@ -10,6 +10,7 @@ st.title('面接シミュレーション')
 
 # カレントディレクトリのパスを取得
 current_directory = os.getcwd()
+st.write(current_directory)
 
 # config.yaml へのフルパスを生成
 config_path = os.path.join(current_directory, "./config.yaml")
