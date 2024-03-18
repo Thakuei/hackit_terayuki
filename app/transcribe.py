@@ -24,6 +24,7 @@ def trans_function():
 #========================================================================
     
     #録音するとこ
+    st.write("このマイクをクリックすると録音できます")
     with st.sidebar:
         audio_bytes = audio_recorder(
         text="",

@@ -12,7 +12,7 @@ import os
 st.set_page_config(layout="wide")
 
 #voicevoxのAPI設定
-VOILCEVOX_API_URL = os.getenv('VOICE_API_URL', 'http://localhost:50021')
+VOILCEVOX_API_URL = os.getenv('VOICE_API_URL', 'http://voicecox:50021')
 
 def synthesize_voice(text='text', speaker_id=8):
     # 音声合成のクエリを生成

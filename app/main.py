@@ -6,14 +6,14 @@ from yaml.loader import SafeLoader
 from chat import show_chat_page
 import os
 
-st.title('面接シミュレーション')
+st.title('面接シミュレーション V-talk')
 
 # カレントディレクトリのパスを取得
 current_directory = os.getcwd()
-st.write(current_directory)
+# st.write(current_directory)
 
 # config.yaml へのフルパスを生成
-config_path = os.path.join(current_directory, "././config.yaml")
+config_path = os.path.join(current_directory, "./config.yaml")
 
 # フルパスを使用してファイルを開く
 with open(config_path, "r") as file:
