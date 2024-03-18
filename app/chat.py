@@ -7,23 +7,24 @@ import json
 from datetime import datetime
 from transcribe import trans_function
 import requests
+import os
 
 st.set_page_config(layout="wide")
 
 #voicevoxのAPI設定
-VOICEVOX_API_URL = "http://hackit_terayuki-voicevox-1:50021"
+VOILCEVOX_API_URL = os.getenv('VOICE_API_URL', 'http://localhost:50021')
 
 def synthesize_voice(text='text', speaker_id=8):
     # 音声合成のクエリを生成
     query_response = requests.post(
-        f"{VOICEVOX_API_URL}/audio_query",
+        f'{VOILCEVOX_API_URL}/audio_query',
         params ={('text', text), ("speaker", speaker_id)}
     )
     query = query_response.json()
 
     # 音声を合成
     synthesis_response = requests.post(
-        f"{VOICEVOX_API_URL}/synthesis",
+        f'{VOILCEVOX_API_URL}/synthesis',
         headers={"Content-Type": "application/json"},
         params ={('text', text), ("speaker", speaker_id)}, 
         data=json.dumps(query)
