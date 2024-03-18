@@ -4,12 +4,19 @@ import streamlit_authenticator as stauth
 import yaml 
 from yaml.loader import SafeLoader
 from chat import show_chat_page
+import os
 
 st.title('面接シミュレーション')
 
-#ログイン認証
-with open("config.yaml", "r") as file:
-    config = yaml.load(file, Loader=SafeLoader)
+# カレントディレクトリのパスを取得
+current_directory = os.getcwd()
+
+# config.yaml へのフルパスを生成
+config_path = os.path.join(current_directory, "config.yaml")
+
+# フルパスを使用してファイルを開く
+with open(config_path, "r") as file:
+    config = yaml.load(file, Loader=yaml.SafeLoader)
 
 authenticator = stauth.Authenticate(
     config['credentials'],
