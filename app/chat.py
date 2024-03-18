@@ -6,18 +6,30 @@ import time
 import json
 from datetime import datetime
 from transcribe import trans_function
-
-
+import requests
 
 st.set_page_config(layout="wide")
 
-# def show_redirect_button():
-#     st.markdown("本日の面接はこれで終わりです。ありがとうございました。")
-#     # 別ページへのボタンを表示
-#     if st.button("分析ページに進む"):
-#         # ページ遷移を伴う場合は、セッションステートの変更、
-#         # やリンクのクリックを促すメッセージを表示
-#         st.session_state.redirect = True
+#voicevoxのAPI設定
+VOICEVOX_API_URL = "http://hackit_terayuki-voicevox-1:50021"
+
+def synthesize_voice(text='text', speaker_id=8):
+    # 音声合成のクエリを生成
+    query_response = requests.post(
+        f"{VOICEVOX_API_URL}/audio_query",
+        params ={('text', text), ("speaker", speaker_id)}
+    )
+    query = query_response.json()
+
+    # 音声を合成
+    synthesis_response = requests.post(
+        f"{VOICEVOX_API_URL}/synthesis",
+        headers={"Content-Type": "application/json"},
+        params ={('text', text), ("speaker", speaker_id)}, 
+        data=json.dumps(query)
+    )
+    audio_data = synthesis_response.content
+    return audio_data
 
 def show_chat_page():
     trans_function()
@@ -53,14 +65,22 @@ def show_chat_page():
         
         for message in st.session_state['messages']:
             with st.container():
-                if message["role"] == "user":
-                    user_message = st.chat_message("user")
-                    user_message.write(f"You: {message['content']}")
-                elif message["role"] == "bot":
-                    mensetukan_meaage= st.chat_message("assistant")
-                    mensetukan_meaage.write(f"bot: {message['content']}")
-                # 特定のフレーズが含まれている場合はボタンを表示
-                    if "本日の面接はこれで終わりです。ありがとうございました" in message['content']:
-                        if st.button("分析ページに進む"):
-                            st.switch_page("pages/history.py")
-                            st.session_state.redirect = True
+                col1, col2 = st.columns([0.9, 0.1])
+                with col1:
+                    if message["role"] == "user":
+                        user_message = st.chat_message("user")
+                        user_message.write(f"You: {message['content']}")
+                    elif message["role"] == "bot":
+                        mensetukan_meaage= st.chat_message("assistant")
+                        mensetukan_meaage.write(f"bot: {message['content']}")
+                with col2:
+                    if message["role"] == "bot":
+                        play_audio = st.button("▶︎",key=message['content'])
+                        if play_audio:
+                            audio_data = synthesize_voice(message['content'])
+                            st.audio(audio_data, format='audio/wav')
+                    # 特定のフレーズが含まれている場合はボタンを表示
+                        if "本日の面接はこれで終わりです。ありがとうございました" in message['content']:
+                            if st.button("分析ページに進む"):
+                                st.switch_page("pages/history.py")
+                                st.session_state.redirect = True
