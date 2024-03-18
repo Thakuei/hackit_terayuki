@@ -20,6 +20,10 @@ credentials:
       email: test1
       name: test1
       password: $2b$12$LkT5Cre1tm.NbVDDCE7qzuu/YjRpoXnxnNmBWxjCioiJhYTExY76i
+    test3:
+      email: test3
+      name: test3
+      password: $2b$12$JdW6pjCmfwoQkcQc63liQ.XDlv6Bhm0lyi5kiQBVyiql9Ybdpa5Ke
 preauthorized:
   emails:
   - melsby@gmail.com

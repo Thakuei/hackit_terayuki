@@ -8,7 +8,7 @@ from chat import show_chat_page
 st.title('面接シミュレーション')
 
 #ログイン認証
-with open("config/config.yaml", "r") as file:
+with open("config.yaml", "r") as file:
     config = yaml.load(file, Loader=SafeLoader)
 
 authenticator = stauth.Authenticate(
