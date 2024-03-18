@@ -16,7 +16,7 @@ config_path = os.path.join(current_directory, "./config.yaml")
 
 # フルパスを使用してファイルを開く
 with open(config_path, "r") as file:
-    config = yaml.load(file, Loader=yaml.SafeLoader)
+    config = yaml.load(file, Loader=SafeLoader)
 
 authenticator = stauth.Authenticate(
     config['credentials'],
