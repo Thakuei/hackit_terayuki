@@ -13,7 +13,7 @@ current_directory = os.getcwd()
 st.write(current_directory)
 
 # config.yaml へのフルパスを生成
-config_path = os.path.join(current_directory, "config.yaml")
+config_path = os.path.join(current_directory, "././config.yaml")
 
 # フルパスを使用してファイルを開く
 with open(config_path, "r") as file:
