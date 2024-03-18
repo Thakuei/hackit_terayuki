@@ -19,7 +19,7 @@ with st.form("new_account_form", clear_on_submit=True):
         hashed_password = stauth.Hasher([password]).generate()[0] # パスワードをハッシュ化
         
         #設定ファイルに新規ユーザーを追加
-        with open("config/config.yaml", "r") as file:
+        with open("config.yaml", "r") as file:
             config = yaml.safe_load(file)
         
         # 新しいユーザー情報を追加
@@ -30,7 +30,7 @@ with st.form("new_account_form", clear_on_submit=True):
         }
 
         # 変更をファイルに保存
-        with open("config/config.yaml", "w") as file:
+        with open("config.yaml", "w") as file:
             yaml.dump(config, file)
             
         st.success("Your account has been created!! Please login")
