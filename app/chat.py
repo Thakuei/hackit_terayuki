@@ -35,11 +35,12 @@ def synthesize_voice(text='text', speaker_id=8):
 def show_chat_page():
     trans_function()
     st.write(f'現在ログインしているユーザーは、*{st.session_state["name"]}* です')
+    st.success('「面接練習をしたいです」と話しかけてください。')
     col1, col2 = st.columns([2, 5])
     with col1:
         st.image("img/office-tr.gif")
     with col2:
-        st.success('「面接練習をしたいです」と話しかけてください。')
+        st.code('面接練習をしたいです')
     
         if 'messages' not in st.session_state:
             st.session_state['messages'] = []
@@ -69,14 +70,14 @@ def show_chat_page():
                 col1, col2 = st.columns([0.9, 0.1])
                 with col1:
                     if message["role"] == "user":
-                        user_message = st.chat_message("user")
+                        user_message = st.chat_message("user", avatar="🧑🏻‍💻")
                         user_message.write(f"You: {message['content']}")
                     elif message["role"] == "bot":
-                        mensetukan_meaage= st.chat_message("assistant")
+                        mensetukan_meaage= st.chat_message("assistant", avatar="👩")
                         mensetukan_meaage.write(f"bot: {message['content']}")
                 with col2:
                     if message["role"] == "bot":
-                        play_audio = st.button("▶︎",key=message['content'])
+                        play_audio = st.button("📢",key=message['content'])
                         if play_audio:
                             audio_data = synthesize_voice(message['content'])
                             st.audio(audio_data, format='audio/wav')
