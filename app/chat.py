@@ -12,19 +12,19 @@ import os
 st.set_page_config(layout="wide")
 
 #voicevoxのAPI設定
-VOILCEVOX_API_URL = os.getenv('VOICE_API_URL', 'http://voicecox:50021')
+VOICEVOX_API_URL = os.getenv('VOICE_API_URL', 'http://voicevox:50021')
 
 def synthesize_voice(text='text', speaker_id=8):
     # 音声合成のクエリを生成
     query_response = requests.post(
-        f'{VOILCEVOX_API_URL}/audio_query',
+        f'{VOICEVOX_API_URL}/audio_query',
         params ={('text', text), ("speaker", speaker_id)}
     )
     query = query_response.json()
 
     # 音声を合成
     synthesis_response = requests.post(
-        f'{VOILCEVOX_API_URL}/synthesis',
+        f'{VOICEVOX_API_URL}/synthesis',
         headers={"Content-Type": "application/json"},
         params ={('text', text), ("speaker", speaker_id)}, 
         data=json.dumps(query)

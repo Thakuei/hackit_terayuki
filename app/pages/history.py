@@ -35,10 +35,10 @@ if st.session_state['messages']:
     for message in st.session_state['messages']:
         with st.container():
             if message["role"] == "user":
-                user_message = st.chat_message("user")
+                user_message = st.chat_message("user", avatar="🧑🏻‍💻")
                 user_message.write(f"You: {message['content']}")
             elif message["role"] == "bot":
-                mensetukan_meaage= st.chat_message("assistant")
+                mensetukan_meaage= st.chat_message("assistant", avatar="👩")
                 mensetukan_meaage.write(f"bot: {message['content']}")
 else:
     st.warning("まだ会話履歴がありません。会話をしてください。")
