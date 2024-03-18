@@ -12,7 +12,7 @@ st.title('面接シミュレーション')
 current_directory = os.getcwd()
 
 # config.yaml へのフルパスを生成
-config_path = os.path.join(current_directory, "config.yaml")
+config_path = os.path.join(current_directory, "./config.yaml")
 
 # フルパスを使用してファイルを開く
 with open(config_path, "r") as file:
