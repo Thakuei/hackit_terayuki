@@ -1,5 +1,5 @@
 ## buildコマンド
-$ docker build -t hackit_terayuki .
+docker compose build
 
 ## RUNコマンド
-docker run -p 8501:8501 -v $(pwd)/app:/app hackit_terayuki
+docker compose up
